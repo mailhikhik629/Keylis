@@ -38,4 +38,285 @@
             text-align: center; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 36px; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.
+        header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 36px; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        header p { margin: 10px 0 0; font-size: 16px; font-weight: 300; opacity: 0.95; }
+
+        .container { padding: 40px 20px; max-width: 1100px; margin: auto; }
+
+        .gallery-title {
+            text-align: center; color: #ad1457; margin-bottom: 40px; font-family: 'Playfair Display', serif; font-size: 28px; position: relative;
+        }
+        .gallery-title::after { content: ''; display: block; width: 60px; height: 3px; background: #e91e63; margin: 10px auto 0; border-radius: 2px; }
+
+        /* =========================================
+           SISTEM GRID & KARTU
+           ========================================= */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+        .card { 
+            background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid #fce4ec; display: flex; flex-direction: column;
+            scroll-margin-top: 20px; 
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(233, 30, 99, 0.15); }
+
+        .card-img-wrapper { position: relative; width: 100%; height: 220px; overflow: hidden; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .card:hover .card-img-wrapper img { transform: scale(1.05); }
+
+        /* Tombol Berbagi (Overlay) */
+        .share-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; gap: 15px; opacity: 0; transition: opacity 0.3s ease; z-index: 2; }
+        .card:hover .share-overlay { opacity: 1; }
+        .share-btn { width: 40px; height: 40px; background: white; color: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.3s ease; transform: scale(0.8); }
+        .card:hover .share-btn { transform: scale(1); }
+        .share-btn:hover { transform: scale(1.1) translateY(-3px); color: white; }
+        .share-btn.wa:hover { background-color: #25d366; } 
+        .share-btn.fb:hover { background-color: #1877f2; } 
+        .share-btn.x:hover { background-color: #000000; }  
+        .share-btn.copy:hover { background-color: #d81b60; color: white;} 
+
+        .card-info { padding: 20px; background: white; position: relative; z-index: 1; flex-grow: 1; }
+        .card-info h3 { margin: 0; color: #d81b60; font-size: 18px; font-weight: 600; }
+        .card-info p { margin: 8px 0 0; font-size: 14px; color: #666; }
+
+        /* =========================================
+           CALL TO ACTION & FOOTER
+           ========================================= */
+        .footer-cta { text-align: center; padding: 50px 20px; background: #fff0f5; margin-top: 20px; border-top: 1px solid #fce4ec; }
+        .footer-cta p { font-size: 18px; color: #555; margin-bottom: 20px; font-weight: 600; }
+        .btn-wa { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #25d366, #128c7e); color: white; padding: 16px 36px; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 16px; letter-spacing: 0.5px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); transition: all 0.3s ease; }
+        .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); background: linear-gradient(135deg, #28e36e, #149f8f); }
+        
+        footer { text-align: center; padding: 25px; background: #333; color: #ddd; font-size: 13px; }
+        footer p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>KEYLIS SALON</h1>
+        <p>✨ Spesialis Ailis & Rias Pesta Terpercaya ✨</p>
+    </header>
+
+    <div class="container">
+        <h2 class="gallery-title">Koleksi Hasil Kerja</h2>
+
+        <div class="gallery-grid">
+            
+            <div class="card" id="karya-1">
+                <div class="card-img-wrapper">
+                    <img src="image.jpg" alt="Natural Classic">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Natural Classic</h3>
+                    <p>Lentik alami untuk penampilan sehari-hari yang sempurna.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-2">
+                <div class="card-img-wrapper">
+                    <img src="image-1.jpg" alt="Soft Volume">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Soft Volume</h3>
+                    <p>Memberikan kesan mata lebih terisi namun tetap ringan.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-3">
+                <div class="card-img-wrapper">
+                    <img src="image-2.jpg" alt="Doll Eye Look">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Doll Eye Look</h3>
+                    <p>Membuat mata terlihat bulat dan cantik bercahaya.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-4">
+                <div class="card-img-wrapper">
+                    <img src="image-3.jpg" alt="Cat Eye Glam">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Cat Eye Glam</h3>
+                    <p>Efek mata tajam dan seksi untuk tampilan berkarakter.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-5">
+                <div class="card-img-wrapper">
+                    <img src="image-4.jpg" alt="Wispy Hybrid">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Wispy Hybrid</h3>
+                    <p>Tekstur modern yang sedang tren untuk gaya unik Anda.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-6">
+                <div class="card-img-wrapper">
+                    <img src="image-5.jpg" alt="Bold Russian">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Bold Russian</h3>
+                    <p>Bulu mata tebal dan hitam pekat untuk hasil yang dramatis.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-7">
+                <div class="card-img-wrapper">
+                    <img src="image-6.jpg" alt="Elegant Silk">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Elegant Silk</h3>
+                    <p>Sentuhan serat sutra halus untuk kenyamanan maksimal.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-8">
+                <div class="card-img-wrapper">
+                    <img src="image-7.jpg" alt="Mink Perfection">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Mink Perfection</h3>
+                    <p>Sangat lembut dan menyerupai bulu mata asli.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-9">
+                <div class="card-img-wrapper">
+                    <img src="image-8.jpg" alt="Daily Fresh">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Daily Fresh</h3>
+                    <p>Solusi praktis tampil cantik setiap saat tanpa maskara.</p>
+                </div>
+            </div>
+
+            <div class="card" id="karya-10">
+                <div class="card-img-wrapper">
+                    <img src="image-9.jpg" alt="Wedding Special">
+                    <div class="share-overlay">
+                        <a href="#" class="share-btn wa" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn fb" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn x" title="Bagikan ke X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="share-btn copy" title="Salin Tautan"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Wedding Special</h3>
+                    <p>Riasan bulu mata spesial untuk momen paling bahagia.</p>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+
+    <div class="footer-cta">
+        <p>Sukai hasil kerja kami? Hubungi sekarang!</p>
+        <a href="https://wa.me/6283140881969" class="btn-wa">
+            💬 BOOKING VIA WHATSAPP
+        </a>
+    </div>
+
+    <footer>
+        <p>📍 Muara Enim, Sumatera Selatan</p>
+        <p>&copy; 2026 Keylis Salon by Olip</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card');
+            
+            // Ambil URL tanpa tambahan hashtag di belakangnya
+            const baseUrl = window.location.href.split('#')[0]; 
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText;
+                const cardId = card.getAttribute('id');
+                
+                // Ini link yang akan dibagikan (mengarah ke ID kartu masing-masing)
+                const itemUrl = baseUrl + '#' + cardId; 
+                
+                const waMessage = `Lihat hasil kerja "${title}" yang cantik dari Keylis Salon! ✨ Hubungi Olip untuk booking.\n\nCek detail fotonya di sini:\n${itemUrl}`;
+
+                card.querySelector('.share-btn.wa').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(`https://wa.me/?text=${encodeURIComponent(waMessage)}`, '_blank');
+                });
+
+                card.querySelector('.share-btn.fb').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(itemUrl)}`, '_blank', 'width=600,height=400');
+                });
+
+                card.querySelector('.share-btn.x').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent('Lihat hasil kerja Keylis Salon!')}&url=${encodeURIComponent(itemUrl)}`, '_blank', 'width=600,height=300');
+                });
+
+                card.querySelector('.share-btn.copy').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(itemUrl).then(() => {
+                        alert('Tautan halaman berhasil disalin!');
+                    }).catch(err => { console.error('Gagal menyalin: ', err); });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
